@@ -1,6 +1,9 @@
 #!/bin/bash
 cd /home/container
 
+# Output Current PHP Version
+php -version
+
 # Flag file octane installed
 OCTANE_INSTALL_FLAG=".octane_installed_flag"
 
@@ -20,8 +23,8 @@ if [ -f composer.json ]; then
     php artisan optimize
 fi
 
-# Output Current PHP Version
-php -version
+# Create the storage link
+php artisan storage:link
 
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 echo ":/home/container$ ${MODIFIED_STARTUP}"

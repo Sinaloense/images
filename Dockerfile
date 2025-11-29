@@ -6,6 +6,7 @@
 FROM dunglas/frankenphp:1.9-php8.4-bookworm
 
 LABEL maintainer="Manuel Martinez <sina@serverscstrike.com>"
+LABEL org.opencontainers.image.source="https://github.com/Sinaloense/images/tree/frankenphp-8.4"
 
 RUN apt-get update && apt-get install -y tini git zip unzip \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
